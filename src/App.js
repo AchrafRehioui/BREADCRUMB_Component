@@ -1,23 +1,18 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Breadcrumb from './components/Breadcrumb';
 
 function App() {
+
+  const [crumbs, setCrumbs] = useState(['Home', 'Category', 'Sub Category']);
+
+  const selected = crumb => {
+    console.log(crumb);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App container">
+      <Breadcrumb crumbs={crumbs} selected={selected} />
     </div>
   );
 }
